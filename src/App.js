@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Button } from 'react-bootstrap';
+import AboutUs from './component/AboutUs';
+import ClientSay from './component/ClientSay';
+import Footer from './component/Footer';
+import Header from './component/Header';
+import Home from './component/Home';
+import HotDeals from './component/HotDeals';
+import Products from './component/Products';
+import TrustedBy from './component/TrustedBy';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <Header/>
+      <Home/>
+      <TrustedBy/>
+      <HotDeals/>
+      <AboutUs/>
+      <Products/>
+      <ClientSay/>
+      <Footer/>
+      {/* <Button>Hi</Button> */}
     </div>
   );
 }
