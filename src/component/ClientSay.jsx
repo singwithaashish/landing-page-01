@@ -1,31 +1,29 @@
-import { Carousel } from "bootstrap";
+import { motion } from "framer-motion";
 import React from "react";
 import { Container } from "react-bootstrap";
 import data from "../data.json";
+import Bottom_up from "./Animation/Bottom_up";
 
 function ClientSay() {
   const [index, setIndex] = React.useState(0);
   return (
     <Container className="p-5 bg-light">
+      <Bottom_up class="" delay={0} child={
       <div className="top text-center">
         <h1 className="bold_primary mt-5">What our happy client say</h1>
         <p className="text-secondary">
           At kastamandap, we take pride in our values - <br />
           services integrity and exellence
         </p>
-      </div>
+      </div>}/>
       <div className="bottom mt-5">
-        {/* <Carousel>
-                <Carousel.Item>
-                </Carousel.Item>
-            </Carousel> */}
+        
         <TestimonialSlider
           testimonials={data.testimonials}
           index={index}
           setIndex={setIndex}
         />
-        {/* {data.testimonials.map((testimonial) => (
-        ))} */}
+        
       </div>
     </Container>
   );
@@ -34,15 +32,26 @@ function ClientSay() {
 const TestimonialSlider = ({ testimonials, index, setIndex }) => {
   return (
     <div className="row">
-      <img
+      
+      <motion.img
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      
+      transition={{ duration: 0.5, delay: 0 }}
+      variants={{
+        visible: { opacity: 1 },
+        hidden: { opacity: 0},
+      }}
         src={testimonials[index].image_url}
         width="230px"
         height="360px"
         style={{ objectFit: "cover" }}
         alt="client"
-        className="me-5 mb-5 col-sm-12 col-md-6"
+        className="col-sm-12 col-md-6 me-5 mb-5 "
       />
-      <div className="d-flex col-sm-12 col-md-4 flex-column justify-content-between">
+      <Bottom_up class="col-sm-12 col-md-4" delay={0.3} child={
+      <div className="d-flex  flex-column justify-content-between">
         <div>
         <h3>furni.shop</h3>
         <p className="fw-bolder fst-italic text-secondary">
@@ -62,7 +71,7 @@ const TestimonialSlider = ({ testimonials, index, setIndex }) => {
             }
           ></i>
         </div>
-      </div>
+      </div>}/>
     </div>
   );
 };

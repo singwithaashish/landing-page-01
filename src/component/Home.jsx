@@ -1,17 +1,27 @@
+
 import React from "react";
 import { Container } from "react-bootstrap";
+import Bottom_up from "./Animation/Bottom_up";
 
 function Home() {
+
+  
+
+  
+
   return (
     <Container>
-      <div className="home position-relative " style={{height: '90vh'}}>
+      <div className="home position-relative " style={{height: '90vh'}} id="Home">
+        
         <div className="caption col-sm-12 col-md-6 p-5  ps-0  position-absolute top-50 start-25 translate-middle-y" style={{zIndex: 3, backgroundColor: "rgba(255, 255, 255, .5)", backdropFilter: "blur(8px)"}}>
-          <h1 style={{fontSize: "3.5rem", fontWeight: "bold", color: "#537173"}}>We help you make Modern Interior</h1>
-          <p>
+          <Bottom_up class="" delay={0} child={
+            <>
+          <h1 className="headline">We help you make Modern Interior</h1>
+          <p >
             we are a team of designers and developers that create high quality
             websites, apps, and other digital products using the latest
             technology and design.
-          </p>
+          </p></>}/>
         </div>
         <div  className="col-sm-12 col-md-10 h-100 position-absolute top-50 end-0 translate-middle-y">
 

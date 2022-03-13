@@ -1,9 +1,10 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import Bottom_up from "./Animation/Bottom_up";
 
 function Footer() {
   return (
-    <div className="p-5" style={{background: "#537173"}}>
+    <div className="p-5" style={{background: "#537173"}} id="Contact">
       <Container>
         <div className="top row">
           <h2 className="text-light fw-bold col-sm-8 col-md-5 me-md-auto ">
@@ -88,7 +89,8 @@ function Footer() {
 
 const Extras = ({ top, remaining }) => {
   return (
-    <div className="my-4 col-sm-6 col-md-2 my-sm-3">
+    <Bottom_up class="my-4 col-sm-6 col-md-2 my-sm-3" delay={0} child={
+    <div className="">
       <p style={{color: "#fff", fontSize: "1.2rem"}}>{top}</p>
       <div className="d-flex justify-content-start flex-column">
         {remaining.map((item, i) => (
@@ -97,7 +99,7 @@ const Extras = ({ top, remaining }) => {
           </a>
         ))}
       </div>
-    </div>
+    </div>}/>
   );
 };
 

@@ -1,12 +1,15 @@
 import React from "react";
 import { Button, Container } from "react-bootstrap";
 import '../index.css'
+import Bottom_up from "./Animation/Bottom_up";
 
 function AboutUs() {
   return (
     <Container>
-      <div className="about_us">
+      <div className="about_us" id="About">
         <div className="top w-100 my-5 py-5 d-flex justify-content-between">
+          <Bottom_up class={'left'}
+          child={
           <div className="left">
             <h1
               className="bold_primary"
@@ -17,16 +20,21 @@ function AboutUs() {
               At kastamandap, we take pride in our values - <br />
               services integrity and exellence
             </p>
-          </div>
+          </div>}
+          duration={0.3}/>
+          <Bottom_up
+          class={''}
+          delay={0.5}
+          child={
           <Button
             variant="light"
             className="text-secondary shadow-lg"
             style={{ height: "3.5rem" }}
           >
             Learn more
-          </Button>
+          </Button>}/>
         </div>
-        <div className="bottom row ">
+        <div className="bottom row " >
           <div className="left col-sm-12 col-md-6 h-100 ">
             <span className="d-flex">
               <Point
@@ -61,7 +69,8 @@ function AboutUs() {
               />
             </span>
           </div>
-          <div className="right d-flex col-sm-12 col-md-6 col-lg-6">
+          <Bottom_up class="right d-flex col-sm-12 col-md-6 col-lg-6" delay={0.5} child={
+          <>
             <span className=" w-50 d-flex flex-column align-items-end mt-5 ">
               
               <img className="about_small_img" src="https://images.pexels.com/photos/7846313/pexels-photo-7846313.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="cat1" />
@@ -72,7 +81,7 @@ function AboutUs() {
               <img className="about_small_img" src="https://images.pexels.com/photos/11310113/pexels-photo-11310113.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="cat1" />
             </span>
             
-            </div>
+            </>}/>
         </div>
       </div>
     </Container>
@@ -80,7 +89,8 @@ function AboutUs() {
 }
 
 const Point = ({ ind, ques, ans }) => (
-  <div className="point w-50 p-2 ps-0">
+  <Bottom_up child={
+  <div className="">
     <h1
       className="bold_primary"
     >
@@ -96,7 +106,10 @@ const Point = ({ ind, ques, ans }) => (
       {ques}
     </h3>
     <p className="text-secondary">{ans}</p>
-  </div>
+  </div>}
+  delay={ind/10}
+  class={'point w-50 p-2 ps-0'}
+  />
 );
 
 export default AboutUs;
